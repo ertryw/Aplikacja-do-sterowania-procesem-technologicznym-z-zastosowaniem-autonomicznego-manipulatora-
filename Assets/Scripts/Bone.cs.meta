@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 596e1c00e310fd548aae86105921f716
+timeCreated: 1554716179
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - CzlonTxtobj: {fileID: 1703134977060160, guid: 197e80aaa3a3ebd48b9654b56c30668f,
+      type: 2}
+  - czlontxt: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

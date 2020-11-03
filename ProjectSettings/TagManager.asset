@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - JointObject
+  - Bone
+  - Joint
+  - CzlonTxt
+  - dlugoscTxt
+  - Finger
+  - Cylinder
+  - Build
+  - Platform
+  - Object
+  - Container
+  - text
+  - CameraCap
+  - CCamera
+  - workplace
+  - paramtxt
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - UI1
+  - UI2
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI1
+    uniqueID: 1390526557
+    locked: 0
+  - name: UI2
+    uniqueID: 3530361385
+    locked: 0
