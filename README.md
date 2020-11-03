@@ -5,10 +5,10 @@ Oprogramowanie zawiera szereg dodatkowych modułów takich jak system wizyjny lu
 
 ## Graphics
 
-![s1](./Assets/ScreensMGR/s1.png)
-![s2](./Assets/ScreensMGR/s2.png)
-![s3](./Assets/ScreensMGR/s3.png)
-![s4](./Assets/ScreensMGR/s4.png)
+![s1](./Assets/ScreensMGR/s1.bmp)
+![s2](./Assets/ScreensMGR/s2.bmp)
+![s3](./Assets/ScreensMGR/s3.bmp)
+![s4](./Assets/ScreensMGR/s4.bmp)
 
 ### Technologies
 Unity 2017
