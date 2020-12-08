@@ -43,14 +43,9 @@ public class InverseKinematic : MonoBehaviour {
         FK = ForwardKineamticObj.GetComponent<ForwardKinematic>();
     }
 
-    // Update is called once per frame
-
-
     public bool j1_reverse = false;
     public float katsum = 0;
     public int y = 1;
-
-
     public bool JaI = false;
     public bool JaT = true;
 
@@ -65,10 +60,6 @@ public class InverseKinematic : MonoBehaviour {
         {
             Joints = GetJointsWihtTag(Base, "JointObject");
             KońcówkaPos = Końcówka.transform.position;
-
-
-            //TargetPos = TargetObj.transform.position;
-
 
             if (JaI == true)
                 JaT = false;
@@ -86,17 +77,7 @@ public class InverseKinematic : MonoBehaviour {
 
 
             J = CreateJacobian();
-            //Debug.Log(J);
-
-            //Debug.Log(Matrix.MatrixDeterminant(J.mat));
-
             JT = J.T;
-            //JI = J.Inverse();
-
-
-            //Debug.Log(J);
-
-            //   dO = new Matrix(6, 1);
 
             V2 = new Matrix(6, 1);
             V2.mat[0][0] = V.x;
@@ -125,8 +106,6 @@ public class InverseKinematic : MonoBehaviour {
                     }
             }
 
-
-
             for (int i = 0; i < Joints.Count; i++)
             {
                 if (SetBase)
@@ -152,19 +131,10 @@ public class InverseKinematic : MonoBehaviour {
 
                     if (Mathf.Abs(katsum) < 5f)
                     {
-                        /*
-                        for (int y = 0; y < result.Length; y++)
-                        {
-                            Joints[y].GetComponent<RevoluteJoint>().UstawKąt = 0;
-                        }
-                        */
-
                         SetBase = false;
                         end = true;
                         break;
                     }
-
-
                 }
 
                 if (down == false)
@@ -199,10 +169,10 @@ public class InverseKinematic : MonoBehaviour {
                                 if (JaT)
                                 {
                                     if (Vector3.Distance(TargetSeqPos, KońcówkaPos) > 1)
-                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed;// (result[y] < 0) ? Random.Range(-0.01f, -0.1f) : Random.Range(0.01f, 0.1f
+                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed;
 
                                     if (Vector3.Distance(TargetSeqPos, KońcówkaPos) <= 1)
-                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed / 2;// (result[y] < 0) ? Random.Range(-0.01f, -0.1f) : Random.Range(0.01f, 0.1f
+                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed / 2;
 
                                 }
 
@@ -212,7 +182,7 @@ public class InverseKinematic : MonoBehaviour {
                                         Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * 1f;
 
                                     if (Vector3.Distance(TargetSeqPos, KońcówkaPos) > 0.4)
-                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * 1f;// (result[y] < 0) ? Random.Range(-0.01f, -0.1f) : Random.Range(0.01f, 0.1f);
+                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * 1f;
                                 }
                             }
 
@@ -223,7 +193,6 @@ public class InverseKinematic : MonoBehaviour {
                         y = 1;
                         set = false;
                         end = true;
-                        //LastTargetSeqPos = TargetSeqPos;
                     }
                 }else
                 {
@@ -257,10 +226,10 @@ public class InverseKinematic : MonoBehaviour {
                                 if (JaT)
                                 {
                                     if (Vector3.Distance(TargetSeqPos, KońcówkaPos) > 1)
-                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed;// (result[y] < 0) ? Random.Range(-0.01f, -0.1f) : Random.Range(0.01f, 0.1f
+                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed;
 
                                     if (Vector3.Distance(TargetSeqPos, KońcówkaPos) <= 1)
-                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed/2;// (result[y] < 0) ? Random.Range(-0.01f, -0.1f) : Random.Range(0.01f, 0.1f
+                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * speed/2;
 
 
                                 }
@@ -271,7 +240,7 @@ public class InverseKinematic : MonoBehaviour {
                                         Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * 1f;
 
                                     if (Vector3.Distance(TargetSeqPos, KońcówkaPos) > 0.4)
-                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * 1f;// (result[y] < 0) ? Random.Range(-0.01f, -0.1f) : Random.Range(0.01f, 0.1f);
+                                        Joints[y].GetComponent<RevoluteJoint>().UstawKąt += result[y] * 1f;
                                 }
                             }
 
@@ -282,16 +251,8 @@ public class InverseKinematic : MonoBehaviour {
                         y = 1;
                         set = false;
                         end = true;
-                        //LastTargetSeqPos = TargetSeqPos;
                     }
-
-
-
                 }
-
-
-
-
             }
         }
         }
@@ -303,12 +264,9 @@ public class InverseKinematic : MonoBehaviour {
         // row --->
         //colum |
 
-
         Matrix M = new Matrix(3, Joints.Count);
         List<Vector3> rotYs = new List<Vector3>();
-
-
-//Debug.Log(Joints.Count);
+        
         for (int i = 0; i < Joints.Count; i++)
         {
             var r = Joints[i].GetComponent<RevoluteJoint>();
@@ -327,9 +285,7 @@ public class InverseKinematic : MonoBehaviour {
             M.mat[0][i] = rotYs[i].x;
             M.mat[1][i] = rotYs[i].y;
             M.mat[2][i] = rotYs[i].z;
-            //Debug.Log(rotYs[i]);
         }
-        //Debug.Log(M);
         return M;
     }
 
@@ -354,7 +310,6 @@ public class InverseKinematic : MonoBehaviour {
                 J.mat[i][i] = 1;
         }
 
-           // Debug.Log(J);
         return J;
     }
 
@@ -390,8 +345,6 @@ public class InverseKinematic : MonoBehaviour {
             Jv.mat[2][i] = v3.z;
         }
 
-
-        //Debug.Log(Jv);
         return Jv;
     }
 
